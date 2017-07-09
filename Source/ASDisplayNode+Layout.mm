@@ -87,6 +87,7 @@
     // Our calculated layout is suitable for this constrainedSize, so keep using it and
     // invalidate any pending layout that has been generated in the past.
     _pendingDisplayNodeLayout = nullptr;
+    as_log_verbose(ASLayoutLog(), "Clearing pending layout for %@ in %s", self, sel_getName(_cmd));
     layout = _calculatedDisplayNodeLayout->layout;
   } else if (_pendingDisplayNodeLayout != nullptr && _pendingDisplayNodeLayout->isValidForConstrainedSizeParentSize(constrainedSize, parentSize)) {
     ASDisplayNodeAssertNotNil(_pendingDisplayNodeLayout->layout, @"-[ASDisplayNode layoutThatFits:parentSize:] _pendingDisplayNodeLayout->layout should not be nil! %@", self);
@@ -96,6 +97,7 @@
     layout = [self calculateLayoutThatFits:constrainedSize
                           restrictedToSize:self.style.size
                       relativeToParentSize:parentSize];
+    as_log_verbose(ASLayoutLog(), "Established pending layout for %@ in %s", self, sel_getName(_cmd));
     _pendingDisplayNodeLayout = std::make_shared<ASDisplayNodeLayout>(layout, constrainedSize, parentSize);
     ASDisplayNodeAssertNotNil(layout, @"-[ASDisplayNode layoutThatFits:parentSize:] newly calculated layout should not be nil! %@", self);
   }
