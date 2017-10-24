@@ -1,6 +1,9 @@
 ## master
 * Add your own contributions to the next release on the line below this with your name.
 
+## 2.6
+- [Xcode 9] Updated to require Xcode 9 (to fix warnings) [Garrett Moon](https://github.com/garrettmoon)
+
 ## 2.5.1
 - [ASVideoNode] Fix unreleased time observer. [Flo Vouin](https://github.com/flovouin)
 - [PINCache] Set a default .byteLimit to reduce disk usage and startup time. [#595](https://github.com/TextureGroup/Texture/pull/595) [Scott Goodson](https://github.com/appleguy)
